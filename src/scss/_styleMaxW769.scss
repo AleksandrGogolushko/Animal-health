@@ -1,0 +1,99 @@
+@media (max-width: 769px) { 
+
+    .one{
+        background-image: url(../image/bdFirstTablet.jpg);
+        overflow: hidden;
+        .decor {
+            width: 70vw;
+        }
+        .centerTitle {
+            width: 45vw;
+              margin: auto auto;
+              margin-left: 50vw;
+              h1{
+                font-size: 6vw;
+              }
+          }
+          nav ul li {
+            font-size: 1.4vmax;
+          }
+    }
+
+.two .weDo {
+    width: 45vw;
+    margin-left: 12vw;
+    ul .header{
+        font-size: 5vw;
+    list-style: none;
+    margin: 0;
+    }
+    p {
+        font-size: 4vw;
+      }
+    li {
+        font-size: 2vw;
+        margin-left: 10%;
+        line-height: 2;
+    }
+}
+ .four{
+    .title {
+        width: 80vw;
+      }
+      .doctor {
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80vw;
+        flex-direction: row;
+        flex-wrap: wrap;
+         padding-top: 0px;
+         .person {
+            padding-top: 5vh;
+
+            .foto {
+                width: 20vw;
+              }
+          }
+    }
+ }
+
+.five {
+  background-size: cover;
+  background-position: center;
+
+  .videoContainer {
+    margin-left: 4vw;
+    width: 55vw;
+  }
+  .title p {
+    font-size: 1.5vmax;
+  }
+}
+.six{
+    .information .contact {
+        width: 60vmax;
+        ul {
+            li {
+                font-size: 1.5vmax;
+                &:last-child {
+                    width: 30%;
+                  }
+              }
+        }
+       
+    }
+    .validationMassage {
+        left: 8vw;
+        .massage {
+            font-size: 1.7vw;
+          }
+          img.cloud {
+            width: 30vw;
+          }
+      }
+      .forms h2 {
+        margin-top: 8vmax;
+      }
+}
+}
