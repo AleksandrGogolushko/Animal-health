@@ -1,1 +1,115 @@
-"use strict";function _createForOfIteratorHelper(e){if("undefined"==typeof Symbol||null==e[Symbol.iterator]){if(Array.isArray(e)||(e=_unsupportedIterableToArray(e))){var t=0,a=function(){};return{s:a,n:function(){return t>=e.length?{done:!0}:{done:!1,value:e[t++]}},e:function(e){throw e},f:a}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}var r,o,n=!0,s=!1;return{s:function(){r=e[Symbol.iterator]()},n:function(){var e=r.next();return n=e.done,e},e:function(e){s=!0,o=e},f:function(){try{n||null==r.return||r.return()}finally{if(s)throw o}}}}function _unsupportedIterableToArray(e,t){if(e){if("string"==typeof e)return _arrayLikeToArray(e,t);var a=Object.prototype.toString.call(e).slice(8,-1);return"Object"===a&&e.constructor&&(a=e.constructor.name),"Map"===a||"Set"===a?Array.from(a):"Arguments"===a||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(a)?_arrayLikeToArray(e,t):void 0}}function _arrayLikeToArray(e,t){(null==t||t>e.length)&&(t=e.length);for(var a=0,r=new Array(t);a<t;a++)r[a]=e[a];return r}var email=document.getElementById("email"),password=document.getElementById("password"),phone=document.getElementById("tel"),fio=document.querySelectorAll("input[type=text]"),messageCloud=document.querySelector(".validationMassage"),message=document.getElementsByClassName("massage")[0],submit=document.querySelector("input[type=submit]");function emailValid(){email.value.search(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/m)?(validationProgress.email=!1,messageCloud.classList.add("show"),message.innerHTML="Invalid email address. Valid e-mail can contain only latin letters, numbers, '@' and '.'!"):(messageCloud.classList.remove("show"),validationProgress.email=!0)}function passwordValid(){password.value.search(/^(?=.*\d).{5,10}$/m)?(validationProgress.password=!1,messageCloud.classList.add("show"),message.innerHTML="Password must contain at least 5 characters. Including numbers and letters!"):(messageCloud.classList.remove("show"),validationProgress.password=!0)}function phoneValidate(){phone.value.search(/(^\+[0-9]{2}|^\+[0-9]{2}\(0\)|^\(\+[0-9]{2}\)\(0\)|^00[0-9]{2}|^0)([0-9]{9}$|[0-9\-\s]{10}$)/g)?(messageCloud.classList.add("show"),validationProgress.phone=!1,message.innerHTML="Phone number is not valid. Please entri phone in format +12345678910!"):(messageCloud.classList.remove("show"),validationProgress.phone=!0)}email.addEventListener("input",emailValid),password.addEventListener("input",passwordValid),phone.addEventListener("input",phoneValidate),fio.forEach((function(e){return e.addEventListener("input",(function(){e.value.search(/[a-z]*[a-zA-Z][^\W*\d]{1,20}$/g)?(validationProgress.fio=!1,messageCloud.classList.add("show"),message.innerHTML="Name must contain only letters!"):(validationProgress.fio=!0,messageCloud.classList.remove("show"))}))}));var validationProgress={email:!1,password:!1,phone:!1,fio:!1},form=document.querySelector("form");function checkValidation(e){var t=0;for(var a in e.preventDefault(),validationProgress){if(1!=validationProgress[a]){messageCloud.classList.add("show"),message.innerHTML="Please entri correct information!";break}messageCloud.classList.remove("show"),4==++t&&form.submit()}}submit.addEventListener("click",checkValidation);var _step,anchors=document.querySelectorAll("a[href*='#']"),gate=document.querySelector(".gate"),gate_bottom=document.querySelector(".gate_bottom"),iframe=document.querySelector(".map"),_iterator=_createForOfIteratorHelper(anchors);try{var _loop=function(){var e=_step.value;e.addEventListener("click",(function(t){t.preventDefault(),setTimeout((function(){iframe.classList.add("hiden")}),400),setTimeout((function(){gate.style.top="-48vh"}),400),setTimeout((function(){gate_bottom.style.top="48vh"}),40),setTimeout((function(){var t=e.getAttribute("href").substr(1);document.getElementById(t).scrollIntoView({behavior:"auto"})}),1e3),setTimeout((function(){gate.style.top="-110vh"}),1500),setTimeout((function(){gate_bottom.style.top="200vh"}),1500),setTimeout((function(){iframe.classList.remove("hiden")}),1680)}))};for(_iterator.s();!(_step=_iterator.n()).done;)_loop()}catch(e){_iterator.e(e)}finally{_iterator.f()}
+  let email = document.getElementById("email")
+  let password = document.getElementById("password")
+  let phone = document.getElementById("tel")
+  let fio = document.querySelectorAll("input[type=text]")
+  let messageCloud = document.querySelector(".validationMassage")
+  let message = document.getElementsByClassName("massage")[0];
+  let submit = document.querySelector("input[type=submit]")
+ 
+
+
+    email.addEventListener("input",emailValid);
+    password.addEventListener("input",passwordValid);
+    phone.addEventListener("input",phoneValidate);
+    fio.forEach((e)=>e.addEventListener("input",function(){
+        if(!e.value.search(/[a-z]*[a-zA-Z][^\W*\d]{1,20}$/g)){
+            validationProgress.fio = true;
+          messageCloud.classList.remove("show");
+      }else{
+          validationProgress.fio = false;
+        messageCloud.classList.add("show");
+          message.innerHTML =  "Name must contain only letters!"
+      }
+      }))
+
+  function emailValid(){
+    if(!email.value.search(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/m)){
+      messageCloud.classList.remove("show");
+      validationProgress.email = true;
+    }else{
+        validationProgress.email = false;
+      messageCloud.classList.add("show");
+      message.innerHTML = "Invalid email address. Valid e-mail can contain only latin letters, numbers, '@' and '.'!"
+    }
+    }
+
+    function passwordValid(){
+      if(!password.value.search(/^(?=.*\d).{5,10}$/m)){
+        messageCloud.classList.remove("show");
+        validationProgress.password = true;
+    }else{
+       validationProgress.password = false;
+      messageCloud.classList.add("show");
+        message.innerHTML =  "Password must contain at least 5 characters. Including numbers and letters!"
+    }
+    }
+
+    function phoneValidate(){
+      if(!phone.value.search(/(^\+[0-9]{2}|^\+[0-9]{2}\(0\)|^\(\+[0-9]{2}\)\(0\)|^00[0-9]{2}|^0)([0-9]{9}$|[0-9\-\s]{10}$)/g)){
+        messageCloud.classList.remove("show");
+        validationProgress.phone = true;
+    }else{
+      messageCloud.classList.add("show");
+      validationProgress.phone = false;
+        message.innerHTML =  "Phone number is not valid. Please entri phone in format +12345678910!";
+    }
+    }
+  
+    let validationProgress = {
+        email:false,
+        password:false,
+        phone:false,
+        fio:false
+    }
+
+    let form = document.querySelector("form")
+    submit.addEventListener("click",checkValidation);
+   
+    function checkValidation(e){
+        let count = 0;
+        e.preventDefault();
+        for (let values in validationProgress){
+            if(validationProgress[values] == true){
+                messageCloud.classList.remove("show");
+                 count++
+                 if(count == 4){
+                    form.submit();
+                 }
+            }else{
+                messageCloud.classList.add("show");
+                message.innerHTML = "Please entri correct information!";
+                break
+            }
+           
+        }
+    }
+
+
+let anchors = document.querySelectorAll("a[href*='#']");
+let gate = document.querySelector(".gate");
+let gate_bottom = document.querySelector(".gate_bottom")
+let iframe = document.querySelector(".map")
+  for (let anchor of anchors) {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      setTimeout(()=>{iframe.classList.add("hiden")},400)
+      setTimeout(()=>{gate.style.top = "-48vh"},400)
+      setTimeout(()=>{gate_bottom.style.top="48vh"},40)
+      setTimeout(()=>{
+        const blockID = anchor.getAttribute("href").substr(1);
+      document.getElementById(blockID).scrollIntoView({
+        behavior: 'auto'
+      })
+      },1000)
+      setTimeout(()=>{gate.style.top = "-110vh"},1500)
+      setTimeout(()=>{gate_bottom.style.top="200vh"},1500)
+      setTimeout(()=>{iframe.classList.remove("hiden")},1680)
+    });
+  }
+
+
+   
+
+    
+
+    
