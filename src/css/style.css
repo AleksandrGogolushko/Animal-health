@@ -39,6 +39,9 @@ main {
   -webkit-transform-origin: top left;
   -ms-transform-origin: top left;
   transform-origin: top left;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+  overflow: hidden;
 }
 .wraper .gate, .wraper .gate_bottom {
   width: 600vw;
@@ -64,7 +67,7 @@ main {
 }
 
 .outer-wrapper {
-  width: 100vh;
+  width: 105vh;
   height: 100vw;
   -webkit-transform: rotate(-90deg) translateX(-100vh);
   -ms-transform: rotate(-90deg) translateX(-100vh);
@@ -73,7 +76,6 @@ main {
   -ms-transform-origin: top left;
   transform-origin: top left;
   overflow-y: scroll;
-  overflow-x: hidden;
   position: absolute;
   scrollbar-width: none;
   -ms-overflow-style: none;
