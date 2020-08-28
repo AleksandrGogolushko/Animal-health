@@ -106,9 +106,12 @@ let iframe = document.querySelector(".map")
     });
   }
 
+  let vh = window.innerHeight;
+  let vw = window.innerWidth;
+  
   input.forEach(e=>{
     e.addEventListener("focusin",()=>{
-     size()
+     size(vh,vw)
     })
     e.addEventListener("focusout",()=>{
      setTimeout(()=>{
@@ -117,8 +120,6 @@ let iframe = document.querySelector(".map")
       })
   })
  
-  function size() {
-   let vh = window.innerHeight;
-   let vw = window.innerWidth;
+  function size(vh,vw) {
    document.querySelector('meta[name="viewport"]').setAttribute("content", "height=" + vh + "px, width=" + vw + "px, initial-scale=1.0, user-scalable=no, maximum-scale=1.0");
  }
