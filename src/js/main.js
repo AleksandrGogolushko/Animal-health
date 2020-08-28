@@ -108,18 +108,16 @@ let iframe = document.querySelector(".map")
 
   let vh = window.innerHeight;
   let vw = window.innerWidth;
-  
-  input.forEach(e=>{
-    e.addEventListener("focusin",()=>{
-     size(vh,vw)
-    })
-    e.addEventListener("focusout",()=>{
-     setTimeout(()=>{
-       document.querySelector('meta[name="viewport"]').setAttribute("content", "width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0");
-       },200)
-      })
-  })
  
   function size(vh,vw) {
    document.querySelector('meta[name="viewport"]').setAttribute("content", "height=" + vh + "px, width=" + vw + "px, initial-scale=1.0, user-scalable=no, maximum-scale=1.0");
  }
+
+ document.querySelector('div.forms').addEventListener("click",(e)=>{
+   let target = e.target || e.srcElement;
+     if(target.tagName == "INPUT" || target.tagName == "LABEL"){
+       size(vh,vw);
+     }else{
+      document.querySelector('meta[name="viewport"]').setAttribute("content", "width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0");
+     }
+ })
